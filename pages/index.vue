@@ -473,6 +473,10 @@
         <v-textarea outlined label="お問い合わせ内容"></v-textarea>
       </v-col>
     </v-row>
+
+    <v-row v-show="showEstimate">
+      <v-col cols="12" class="headline"> お見積もり </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -646,6 +650,18 @@ export default {
         },
       },
     };
+  },
+  computed: {
+    showEstimate() {
+      return (
+        this.showType1 ||
+        this.showType2 ||
+        this.showType3 ||
+        this.showType4 ||
+        this.showType5 ||
+        this.showType6
+      );
+    },
   },
   methods: {
     changeType1(value) {
