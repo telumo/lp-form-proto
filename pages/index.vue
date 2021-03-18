@@ -87,7 +87,7 @@
     </v-row>
     <v-row>
       <v-col sm="4" cols="12">
-        <v-subheader>具体的用途</v-subheader>
+        <v-subheader>型形式</v-subheader>
       </v-col>
       <v-col sm="8" cols="12">
         <v-checkbox
