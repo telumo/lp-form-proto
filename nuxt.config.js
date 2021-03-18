@@ -60,5 +60,14 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {
+    extend(config, { isDev }) {
+      if (!isDev) {
+        config.output.publicPath = "./static/";
+      }
+    }
+  },
+  router: {
+    mode: "hash"
+  }
 };
