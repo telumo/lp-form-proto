@@ -37,6 +37,7 @@ export default {
       items: [
         { name: "制作項目", answer: "量産" },
         { name: "使用用途", answer: "食品用" },
+        { name: "お問い合わせ内容", answer: "とりあえずお話させてください。" },
       ],
     };
   },
