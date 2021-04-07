@@ -66,7 +66,16 @@
           <v-subheader>制作項目</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-select :items="createTypes" label="制作項目" outlined></v-select>
+          <v-select
+            v-model="e7"
+            :items="createTypes"
+            label="制作項目"
+            multiple
+            chips
+            hint="※複数選択可"
+            persistent-hint
+            outlined
+          ></v-select>
         </v-col>
       </v-row>
 
@@ -450,7 +459,16 @@
           <v-subheader>制作項目</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-select :items="createTypes" label="制作項目" outlined></v-select>
+          <v-select
+            v-model="e7"
+            :items="createTypes"
+            label="制作項目"
+            multiple
+            chips
+            hint="※複数選択可"
+            persistent-hint
+            outlined
+          ></v-select>
         </v-col>
       </v-row>
 
