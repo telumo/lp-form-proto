@@ -87,6 +87,24 @@
           <v-textarea outlined label="具体的用途"></v-textarea>
         </v-col>
       </v-row>
+
+      <v-row>
+        <v-col sm="4" cols="12">
+          <v-subheader>発注時期</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-text-field outlined label="発注時期"></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col sm="4" cols="12">
+          <v-subheader>希望納期</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-text-field outlined label="希望納期"></v-text-field>
+        </v-col>
+      </v-row>
+
       <v-row>
         <v-col sm="4" cols="12">
           <v-subheader>型形式</v-subheader>
@@ -213,20 +231,6 @@
         </v-col>
 
         <v-col sm="4" cols="12">
-          <v-subheader>発注時期</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field outlined label="発注時期"></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>希望納期</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field outlined label="希望納期"></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
           <v-subheader>添付ファイル１（5MBまで）</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
@@ -282,20 +286,6 @@
             label="製品サイズ"
             placeholder="例：200×100×30(mm)"
           ></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>発注時期</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field outlined label="発注時期"></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>希望納期</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field outlined label="希望納期"></v-text-field>
         </v-col>
 
         <v-col sm="4" cols="12">
@@ -357,20 +347,6 @@
         </v-col>
 
         <v-col sm="4" cols="12">
-          <v-subheader>発注時期</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field outlined label="発注時期"></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>希望納期</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field outlined label="希望納期"></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
           <v-subheader>添付ファイル１（5MBまで）</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
@@ -426,20 +402,6 @@
             label="製品サイズ"
             placeholder="例：200×100×30(mm)"
           ></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>発注時期</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field outlined label="発注時期"></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>希望納期</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field outlined label="希望納期"></v-text-field>
         </v-col>
 
         <v-col sm="4" cols="12">
@@ -510,7 +472,8 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-btn>確認</v-btn>
+        <v-spacer />
+        <v-btn class="success">確認</v-btn>
       </v-row>
     </div>
   </v-container>
