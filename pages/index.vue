@@ -449,7 +449,7 @@
 
       <v-row>
         <v-spacer />
-        <v-btn class="success">確認</v-btn>
+        <v-btn class="success" @click="toMitsumori">確認</v-btn>
       </v-row>
     </div>
 
@@ -491,7 +491,7 @@
       </v-row>
       <v-row>
         <v-spacer />
-        <v-btn class="success">確認</v-btn>
+        <v-btn class="success" @click="toSoudan">確認</v-btn>
       </v-row>
     </div>
   </v-container>
@@ -713,6 +713,12 @@ export default {
     },
     changeType6(value) {
       this.showType6 = value;
+    },
+    toSoudan() {
+      this.$router.push("/confirm/soudan");
+    },
+    toMitsumori() {
+      this.$router.push("/confirm/mitsumori");
     },
   },
 };
