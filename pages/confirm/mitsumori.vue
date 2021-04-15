@@ -128,8 +128,8 @@ export default {
           size: "",
           count: "",
           plateCount: "",
-          price: "¥30,000~（+デザイン料）",
-          priceWithTax: "¥33,000~（+デザイン料）",
+          price: "¥30,000 + ¥5,000~（デザイン費用）",
+          priceWithTax: "¥33,000 + ¥5,500~（デザイン費用）",
         },
       ],
     };
