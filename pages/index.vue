@@ -6,7 +6,11 @@
         <v-subheader>会社名</v-subheader>
       </v-col>
       <v-col sm="8" cols="12">
-        <v-text-field outlined label="会社名" value=""></v-text-field>
+        <v-text-field
+          outlined
+          label="会社名"
+          v-model="companyName"
+        ></v-text-field>
       </v-col>
     </v-row>
 
@@ -680,6 +684,14 @@ export default {
         this.showType5 ||
         this.showType6
       );
+    },
+    companyName: {
+      get() {
+        return this.$store.state.companyName;
+      },
+      set(value) {
+        this.$store.commit("setCompanyName", value);
+      },
     },
   },
   methods: {

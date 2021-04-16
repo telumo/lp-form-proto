@@ -9,7 +9,7 @@
           <v-col cols="4">
             <v-subheader>会社名</v-subheader>
           </v-col>
-          <v-col cols="8"> テスト株式会社 </v-col>
+          <v-col cols="8"> {{ companyName }} </v-col>
         </v-row>
 
         <v-row>
@@ -174,6 +174,13 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    companyName: {
+      get() {
+        return this.$store.state.companyName;
+      },
+    },
   },
 };
 </script>
