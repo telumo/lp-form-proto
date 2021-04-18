@@ -3,7 +3,12 @@ export const state = () => ({
   name: "",
   phoneNumber: "",
   email: "",
-  address: ""
+  address: "",
+  soudan: {
+    item: "",
+    use: "",
+    comment: ""
+  }
 });
 
 export const mutations = {
@@ -21,5 +26,14 @@ export const mutations = {
   },
   setAddress(state, address) {
     state.address = address;
+  },
+  setSoudanItem(state, item) {
+    state.soudan.item = item;
+  },
+  setSoudanUse(state, use) {
+    state.soudan.use = use;
+  },
+  setSoudanComment(state, comment) {
+    state.soudan.comment = comment;
   }
 };

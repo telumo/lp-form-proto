@@ -50,21 +50,21 @@
           <v-col cols="4">
             <v-subheader>制作項目</v-subheader>
           </v-col>
-          <v-col cols="8"> 量産 </v-col>
+          <v-col cols="8"> {{ item }} </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>使用用途</v-subheader>
           </v-col>
-          <v-col cols="8"> 食品用 </v-col>
+          <v-col cols="8"> {{ use }} </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>お問い合わせ内容</v-subheader>
           </v-col>
-          <v-col cols="8"> とりあえずお話させてください。 </v-col>
+          <v-col cols="8"> {{ comment }} </v-col>
         </v-row>
       </v-container>
     </v-row>
@@ -102,6 +102,21 @@ export default {
     address: {
       get() {
         return this.$store.state.address;
+      },
+    },
+    item: {
+      get() {
+        return this.$store.state.soudan.item.join(",");
+      },
+    },
+    use: {
+      get() {
+        return this.$store.state.soudan.use;
+      },
+    },
+    comment: {
+      get() {
+        return this.$store.state.soudan.comment;
       },
     },
   },

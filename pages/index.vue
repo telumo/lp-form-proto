@@ -472,7 +472,7 @@
         </v-col>
         <v-col sm="8" cols="12">
           <v-select
-            v-model="e7"
+            v-model="soudanItem"
             :items="createTypes"
             label="制作項目"
             multiple
@@ -489,7 +489,12 @@
           <v-subheader>使用用途</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-select :items="usings" label="使用用途" outlined></v-select>
+          <v-select
+            :items="usings"
+            label="使用用途"
+            outlined
+            v-model="soudanUse"
+          ></v-select>
         </v-col>
       </v-row>
 
@@ -498,7 +503,11 @@
           <v-subheader>お問い合わせ内容</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-textarea outlined label="お問い合わせ内容"></v-textarea>
+          <v-textarea
+            outlined
+            label="お問い合わせ内容"
+            v-model="soudanComment"
+          ></v-textarea>
         </v-col>
       </v-row>
       <v-row>
@@ -731,6 +740,30 @@ export default {
       },
       set(value) {
         this.$store.commit("setAddress", value);
+      },
+    },
+    soudanItem: {
+      get() {
+        return this.$store.state.soudan.item;
+      },
+      set(value) {
+        this.$store.commit("setSoudanItem", value);
+      },
+    },
+    soudanUse: {
+      get() {
+        return this.$store.state.soudan.use;
+      },
+      set(value) {
+        this.$store.commit("setSoudanUse", value);
+      },
+    },
+    soudanComment: {
+      get() {
+        return this.$store.state.soudan.comment;
+      },
+      set(value) {
+        this.$store.commit("setSoudanComment", value);
       },
     },
   },
