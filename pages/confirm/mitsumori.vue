@@ -16,28 +16,28 @@
           <v-col cols="4">
             <v-subheader>担当者名前</v-subheader>
           </v-col>
-          <v-col cols="8"> 試験太郎 </v-col>
+          <v-col cols="8"> {{ name }} </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>電話番号（半角）</v-subheader>
           </v-col>
-          <v-col cols="8"> 09012345678 </v-col>
+          <v-col cols="8"> {{ phoneNumber }} </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>メールアドレス（半角）</v-subheader>
           </v-col>
-          <v-col cols="8"> test@test.com </v-col>
+          <v-col cols="8"> {{ email }} </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>ご住所</v-subheader>
           </v-col>
-          <v-col cols="8"> 千葉県柏市 </v-col>
+          <v-col cols="8"> {{ address }} </v-col>
         </v-row>
       </v-container>
     </v-row>
@@ -179,6 +179,26 @@ export default {
     companyName: {
       get() {
         return this.$store.state.companyName;
+      },
+    },
+    name: {
+      get() {
+        return this.$store.state.name;
+      },
+    },
+    phoneNumber: {
+      get() {
+        return this.$store.state.phoneNumber;
+      },
+    },
+    email: {
+      get() {
+        return this.$store.state.email;
+      },
+    },
+    address: {
+      get() {
+        return this.$store.state.address;
       },
     },
   },

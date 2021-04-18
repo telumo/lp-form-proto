@@ -19,7 +19,7 @@
         <v-subheader>担当者名前</v-subheader>
       </v-col>
       <v-col sm="8" cols="12">
-        <v-text-field outlined label="担当者名前"></v-text-field>
+        <v-text-field outlined label="担当者名前" v-model="name"></v-text-field>
       </v-col>
     </v-row>
 
@@ -28,7 +28,11 @@
         <v-subheader>電話番号（半角）</v-subheader>
       </v-col>
       <v-col sm="8" cols="12">
-        <v-text-field outlined label="電話番号（半角）"></v-text-field>
+        <v-text-field
+          outlined
+          label="電話番号（半角）"
+          v-model="phoneNumber"
+        ></v-text-field>
       </v-col>
     </v-row>
 
@@ -37,7 +41,11 @@
         <v-subheader>メールアドレス（半角）</v-subheader>
       </v-col>
       <v-col sm="8" cols="12">
-        <v-text-field outlined label="メールアドレス（半角）"></v-text-field>
+        <v-text-field
+          outlined
+          label="メールアドレス（半角）"
+          v-model="email"
+        ></v-text-field>
       </v-col>
     </v-row>
 
@@ -46,7 +54,7 @@
         <v-subheader>ご住所</v-subheader>
       </v-col>
       <v-col sm="8" cols="12">
-        <v-text-field outlined label="ご住所"></v-text-field>
+        <v-text-field outlined label="ご住所" v-model="address"></v-text-field>
       </v-col>
     </v-row>
 
@@ -691,6 +699,38 @@ export default {
       },
       set(value) {
         this.$store.commit("setCompanyName", value);
+      },
+    },
+    name: {
+      get() {
+        return this.$store.state.name;
+      },
+      set(value) {
+        this.$store.commit("setName", value);
+      },
+    },
+    phoneNumber: {
+      get() {
+        return this.$store.state.phoneNumber;
+      },
+      set(value) {
+        this.$store.commit("setPhoneNumber", value);
+      },
+    },
+    email: {
+      get() {
+        return this.$store.state.email;
+      },
+      set(value) {
+        this.$store.commit("setEmail", value);
+      },
+    },
+    address: {
+      get() {
+        return this.$store.state.address;
+      },
+      set(value) {
+        this.$store.commit("setAddress", value);
       },
     },
   },
