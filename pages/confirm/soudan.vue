@@ -106,7 +106,9 @@ export default {
     },
     item: {
       get() {
-        return this.$store.state.soudan.item.join(",");
+        if (this.$store.state.soudan.item)
+          return this.$store.state.soudan.item.join(",");
+        else return "";
       },
     },
     use: {
