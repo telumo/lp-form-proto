@@ -67,7 +67,6 @@
           :items="formTypes"
           label="お問い合わせ項目"
           outlined
-          @change="changeFormTypes"
           v-model="selectedFormType"
         ></v-select>
       </v-col>
@@ -80,7 +79,6 @@
         </v-col>
         <v-col sm="8" cols="12">
           <v-select
-            v-model="e7"
             :items="createTypes"
             label="制作項目"
             multiple
@@ -776,8 +774,8 @@ export default {
       },
     },
   },
-  methods: {
-    changeFormTypes(value) {
+  watch: {
+    selectedFormType: function (value) {
       // "見積もり依頼", "ご相談"
       if (value === "見積もり依頼") {
         this.showMitsumori = true;
@@ -790,6 +788,8 @@ export default {
         this.showSoudan = false;
       }
     },
+  },
+  methods: {
     changeType1(value) {
       this.showType1 = value;
     },
