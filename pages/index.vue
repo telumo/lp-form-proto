@@ -68,6 +68,7 @@
           label="お問い合わせ項目"
           outlined
           @change="changeFormTypes"
+          v-model="selectedFormType"
         ></v-select>
       </v-col>
     </v-row>
@@ -766,6 +767,14 @@ export default {
         this.$store.commit("setSoudanComment", value);
       },
     },
+    selectedFormType: {
+      get() {
+        return this.$store.state.selectedFormType;
+      },
+      set(value) {
+        this.$store.commit("setSelectedFormType", value);
+      },
+    },
   },
   methods: {
     changeFormTypes(value) {
@@ -803,6 +812,7 @@ export default {
       this.$router.push("/confirm/soudan");
     },
     toMitsumori() {
+      // データの詰め替え
       this.$router.push("/confirm/mitsumori");
     },
   },

@@ -8,7 +8,9 @@ export const state = () => ({
     item: "",
     use: "",
     comment: ""
-  }
+  },
+  selectedFormType: "",
+  mitumoriItems: []
 });
 
 export const mutations = {
@@ -35,5 +37,11 @@ export const mutations = {
   },
   setSoudanComment(state, comment) {
     state.soudan.comment = comment;
+  },
+  setSelectedFormType(state, selectedFormType) {
+    state.selectedFormType = selectedFormType;
+  },
+  setMitsumoriItems(state, items) {
+    state.mitumoriItems = items;
   }
 };
