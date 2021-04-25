@@ -72,6 +72,7 @@
       </v-col>
     </v-row>
 
+    <!-- 見積もり -->
     <div v-if="showMitsumori">
       <v-row>
         <v-col sm="4" cols="12">
@@ -86,6 +87,7 @@
             hint="※複数選択可"
             persistent-hint
             outlined
+            v-model="mitsumoriItem"
           ></v-select>
         </v-col>
       </v-row>
@@ -95,7 +97,12 @@
           <v-subheader>使用用途</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-select :items="usings" label="使用用途" outlined></v-select>
+          <v-select
+            :items="usings"
+            label="使用用途"
+            outlined
+            v-model="mitsumoriUse"
+          ></v-select>
         </v-col>
       </v-row>
 
@@ -104,7 +111,11 @@
           <v-subheader>具体的用途</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-textarea outlined label="具体的用途"></v-textarea>
+          <v-textarea
+            outlined
+            label="具体的用途"
+            v-model="mitsumoriConcrete"
+          ></v-textarea>
         </v-col>
       </v-row>
 
@@ -113,7 +124,11 @@
           <v-subheader>発注時期</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-text-field outlined label="発注時期"></v-text-field>
+          <v-text-field
+            outlined
+            label="発注時期"
+            v-model="mitsumoriOrderDate"
+          ></v-text-field>
         </v-col>
       </v-row>
       <v-row>
@@ -121,7 +136,11 @@
           <v-subheader>希望納期</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-text-field outlined label="希望納期"></v-text-field>
+          <v-text-field
+            outlined
+            label="希望納期"
+            v-model="mitsumoriDeliverlyDate"
+          ></v-text-field>
         </v-col>
       </v-row>
 
@@ -463,7 +482,9 @@
         <v-btn class="success" @click="toMitsumori">確認</v-btn>
       </v-row>
     </div>
+    <!-- 見積もり -->
 
+    <!-- 相談 -->
     <div v-if="showSoudan">
       <v-row>
         <v-col sm="4" cols="12">
@@ -514,6 +535,7 @@
         <v-btn class="success" @click="toSoudan">確認</v-btn>
       </v-row>
     </div>
+    <!-- 相談 -->
   </v-container>
 </template>
 
@@ -771,6 +793,46 @@ export default {
       },
       set(value) {
         this.$store.commit("setSelectedFormType", value);
+      },
+    },
+    mitsumoriItem: {
+      get() {
+        return this.$store.state.mitsumori.item;
+      },
+      set(value) {
+        this.$store.commit("setMitsumoriItem", value);
+      },
+    },
+    mitsumoriUse: {
+      get() {
+        return this.$store.state.mitsumori.use;
+      },
+      set(value) {
+        this.$store.commit("setMitsumoriUse", value);
+      },
+    },
+    mitsumoriConcrete: {
+      get() {
+        return this.$store.state.mitsumori.concrete;
+      },
+      set(value) {
+        this.$store.commit("setMitsumoriConcrete", value);
+      },
+    },
+    mitsumoriOrderDate: {
+      get() {
+        return this.$store.state.mitsumori.orderDate;
+      },
+      set(value) {
+        this.$store.commit("setMitsumoriOrderDate", value);
+      },
+    },
+    mitsumoriDeliverlyDate: {
+      get() {
+        return this.$store.state.mitsumori.deliverlyDate;
+      },
+      set(value) {
+        this.$store.commit("setMitsumoriDeliverlyDate", value);
       },
     },
   },

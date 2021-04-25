@@ -9,6 +9,13 @@ export const state = () => ({
     use: "",
     comment: ""
   },
+  mitsumori: {
+    item: "",
+    use: "",
+    concrete: "",
+    orderDate: "",
+    deliverlyDate: ""
+  },
   selectedFormType: "",
   mitumoriItems: []
 });
@@ -43,5 +50,20 @@ export const mutations = {
   },
   setMitsumoriItems(state, items) {
     state.mitumoriItems = items;
+  },
+  setMitsumoriItem(state, item) {
+    state.mitsumori.item = item;
+  },
+  setMitsumoriUse(state, use) {
+    state.mitsumori.use = use;
+  },
+  setMitsumoriConcrete(state, concrete) {
+    state.mitsumori.concrete = concrete;
+  },
+  setMitsumoriOrderDate(state, orderDate) {
+    state.mitsumori.orderDate = orderDate;
+  },
+  setMitsumoriDeliverlyDate(state, deliverlyDate) {
+    state.mitsumori.deliverlyDate = deliverlyDate;
   }
 };
