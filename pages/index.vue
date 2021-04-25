@@ -113,7 +113,7 @@
           <v-subheader>発注時期</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-text-field outlined label="発注時期"></v-text-field>
+          <v-date-picker outlined label="発注時期"></v-date-picker>
         </v-col>
       </v-row>
       <v-row>
@@ -121,7 +121,7 @@
           <v-subheader>希望納期</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-text-field outlined label="希望納期"></v-text-field>
+          <v-date-picker outlined label="希望納期"></v-date-picker>
         </v-col>
       </v-row>
 
@@ -502,7 +502,7 @@
           <v-subheader>発注時期</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-text-field outlined label="発注時期"></v-text-field>
+          <v-date-picker outlined label="発注時期"></v-date-picker>
         </v-col>
       </v-row>
       <v-row>
@@ -510,7 +510,7 @@
           <v-subheader>希望納期</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
-          <v-text-field outlined label="希望納期"></v-text-field>
+          <v-date-picker outlined label="希望納期"></v-date-picker>
         </v-col>
       </v-row>
 
