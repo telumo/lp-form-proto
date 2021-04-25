@@ -7,7 +7,9 @@ export const state = () => ({
   soudan: {
     item: "",
     use: "",
-    comment: ""
+    comment: "",
+    orderDate: "",
+    deliverlyDate: ""
   },
   mitsumori: {
     item: "",
@@ -44,6 +46,12 @@ export const mutations = {
   },
   setSoudanComment(state, comment) {
     state.soudan.comment = comment;
+  },
+  setSoudanOrderDate(state, orderDate) {
+    state.soudan.orderDate = orderDate;
+  },
+  setSoudanDeliverlyDate(state, deliverlyDate) {
+    state.soudan.deliverlyDate = deliverlyDate;
   },
   setSelectedFormType(state, selectedFormType) {
     state.selectedFormType = selectedFormType;

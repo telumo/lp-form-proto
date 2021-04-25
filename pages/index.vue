@@ -520,6 +520,31 @@
 
       <v-row>
         <v-col sm="4" cols="12">
+          <v-subheader>発注時期</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-text-field
+            outlined
+            label="発注時期"
+            v-model="soudanOrderDate"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col sm="4" cols="12">
+          <v-subheader>希望納期</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-text-field
+            outlined
+            label="希望納期"
+            v-model="soudanDeliverlyDate"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col sm="4" cols="12">
           <v-subheader>お問い合わせ内容</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
@@ -785,6 +810,22 @@ export default {
       },
       set(value) {
         this.$store.commit("setSoudanComment", value);
+      },
+    },
+    soudanOrderDate: {
+      get() {
+        return this.$store.state.soudan.orderDate;
+      },
+      set(value) {
+        this.$store.commit("setSoudanOrderDate", value);
+      },
+    },
+    soudanDeliverlyDate: {
+      get() {
+        return this.$store.state.soudan.deliverlyDate;
+      },
+      set(value) {
+        this.$store.commit("setSoudanDeliverlyDate", value);
       },
     },
     selectedFormType: {

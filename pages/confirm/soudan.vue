@@ -62,6 +62,20 @@
 
         <v-row>
           <v-col cols="4">
+            <v-subheader>発注時期</v-subheader>
+          </v-col>
+          <v-col cols="8"> {{ orderDate }} </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="4">
+            <v-subheader>希望納期</v-subheader>
+          </v-col>
+          <v-col cols="8"> {{ deliverlyDate }} </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="4">
             <v-subheader>お問い合わせ内容</v-subheader>
           </v-col>
           <v-col cols="8"> {{ comment }} </v-col>
@@ -119,6 +133,16 @@ export default {
     comment: {
       get() {
         return this.$store.state.soudan.comment;
+      },
+    },
+    orderDate: {
+      get() {
+        return this.$store.state.soudan.orderDate;
+      },
+    },
+    deliverlyDate: {
+      get() {
+        return this.$store.state.soudan.deliverlyDate;
       },
     },
   },
