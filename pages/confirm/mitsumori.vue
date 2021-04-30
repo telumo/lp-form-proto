@@ -86,33 +86,51 @@
         </v-row>
       </v-container>
     </v-row>
+
     <v-row>
-      <v-col>
-        <v-simple-table>
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th class="text-left">商品名（型）</th>
-                <th class="text-left">型サイズ</th>
-                <th class="text-left">取り数</th>
-                <th class="text-left">シリコンプレート枚数</th>
-                <th class="text-left">料金(税抜)</th>
-                <th class="text-left">料金(税込み)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in items" :key="item.name">
-                <td>{{ item.name }}</td>
-                <td>{{ item.size }}</td>
-                <td>{{ item.count }}</td>
-                <td>{{ item.plateCount }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.priceWithTax }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
-      </v-col>
+      <v-container fluid>
+        <v-row>
+          <v-col cols="4">
+            <v-subheader>型形式</v-subheader>
+          </v-col>
+          <v-col cols="8"> {{ mitsumoriItem }} </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="4">
+            <v-subheader>型サイズ</v-subheader>
+          </v-col>
+          <v-col cols="8"> {{ mitsumoriItem }} </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="4">
+            <v-subheader>取り数</v-subheader>
+          </v-col>
+          <v-col cols="8"> {{ mitsumoriUse }} </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="4">
+            <v-subheader>シート枚数</v-subheader>
+          </v-col>
+          <v-col cols="8"> {{ mitsumoriConcrete }} </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="4">
+            <v-subheader>料金</v-subheader>
+          </v-col>
+          <v-col cols="8"> {{ mitsumoriOrderDate }} </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="4">
+            <v-subheader>料金（税込）</v-subheader>
+          </v-col>
+          <v-col cols="8"> {{ mitsumoriDeliverlyDate }} </v-col>
+        </v-row>
+      </v-container>
     </v-row>
     <!-- 見積もり内容 -->
 
