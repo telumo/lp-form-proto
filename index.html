@@ -657,61 +657,61 @@
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script>
       new Vue({
-        el: "#app",
+        el: '#app',
         vuetify: new Vuetify(),
         data: {
           common: {
-            companyName: "",
-            name: "",
-            phoneNumber: "",
-            email: "",
-            address: ""
+            companyName: '',
+            name: '',
+            phoneNumber: '',
+            email: '',
+            address: '',
           },
           master: {
             kataTypes: [
-              "平型",
-              "ヌスミ型",
-              "平型両面",
-              "ヌスミ両面型",
-              "容器型",
-              "わからない"
+              '平型',
+              'ヌスミ型',
+              '平型両面',
+              'ヌスミ両面型',
+              '容器型',
+              'わからない',
             ],
-            usings: ["食品用", "工業用", "その他"],
-            hiragataSizes: ["①150×200 厚み10mm", "②200×300 厚み15mm"],
-            nusumiSizes: ["①150×200 厚み20mm", "②200×300 厚み30mm"],
-            createTypes: ["試作/テスト品", "量産"],
+            usings: ['食品用', '工業用', 'その他'],
+            hiragataSizes: ['①150×200 厚み10mm', '②200×300 厚み15mm'],
+            nusumiSizes: ['①150×200 厚み20mm', '②200×300 厚み30mm'],
+            createTypes: ['試作/テスト品', '量産'],
             torisu: [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "12",
-              "15",
-              "16",
-              "18",
-              "20"
+              '1',
+              '2',
+              '3',
+              '4',
+              '5',
+              '6',
+              '7',
+              '8',
+              '9',
+              '10',
+              '12',
+              '15',
+              '16',
+              '18',
+              '20',
             ],
             sheets: [
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "7",
-              "8",
-              "9",
-              "10",
-              "10枚以上"
-            ]
+              '1',
+              '2',
+              '3',
+              '4',
+              '5',
+              '6',
+              '7',
+              '8',
+              '9',
+              '10',
+              '10枚以上',
+            ],
           },
-          kataType: "",
+          kataType: '',
           show: {
             inputForm: true,
             confirmView: false,
@@ -722,241 +722,241 @@
             typeOther: false,
             confirm: {
               mitsumori: false,
-              soudan: false
-            }
+              soudan: false,
+            },
           },
           mitsumori: {
-            item: "",
-            use: "",
-            concrete: "",
-            orderDate: "",
-            deliverlyDate: "",
-            torisu: "",
-            size: "",
-            sheet: "",
-            comment: ""
+            item: '',
+            use: '',
+            concrete: '',
+            orderDate: '',
+            deliverlyDate: '',
+            torisu: '',
+            size: '',
+            sheet: '',
+            comment: '',
           },
           soudan: {
-            item: "",
-            use: "",
-            comment: "",
-            orderDate: "",
-            deliverlyDate: ""
+            item: '',
+            use: '',
+            comment: '',
+            orderDate: '',
+            deliverlyDate: '',
           },
-          price: "",
-          priceWithTax: ""
+          price: '',
+          priceWithTax: '',
         },
         watch: {
           kataType: function(value) {
             // "見積もり依頼", "ご相談"
             switch (value) {
-              case "平型":
-                this.show.mitsumori = true;
-                this.show.soudan = false;
-                this.show.typeHira = true;
-                this.show.typeNusumi = false;
-                this.show.typeOther = false;
-                break;
+              case '平型':
+                this.show.mitsumori = true
+                this.show.soudan = false
+                this.show.typeHira = true
+                this.show.typeNusumi = false
+                this.show.typeOther = false
+                break
 
-              case "ヌスミ型":
-                this.show.mitsumori = true;
-                this.show.soudan = false;
-                this.show.typeHira = false;
-                this.show.typeNusumi = true;
-                this.show.typeOther = false;
-                break;
+              case 'ヌスミ型':
+                this.show.mitsumori = true
+                this.show.soudan = false
+                this.show.typeHira = false
+                this.show.typeNusumi = true
+                this.show.typeOther = false
+                break
 
-              case "わからない":
-                this.show.mitsumori = false;
-                this.show.soudan = true;
-                this.show.typeHira = false;
-                this.show.typeNusumi = false;
-                this.show.typeOther = false;
-                break;
+              case 'わからない':
+                this.show.mitsumori = false
+                this.show.soudan = true
+                this.show.typeHira = false
+                this.show.typeNusumi = false
+                this.show.typeOther = false
+                break
 
               default:
-                this.show.mitsumori = true;
-                this.show.typeHira = false;
-                this.show.typeNusumi = false;
-                this.show.typeOther = true;
-                this.show.soudan = false;
-                break;
+                this.show.mitsumori = true
+                this.show.typeHira = false
+                this.show.typeNusumi = false
+                this.show.typeOther = true
+                this.show.soudan = false
+                break
             }
-          }
+          },
         },
         methods: {
           toMitsumori() {
-            this.show.inputForm = false;
-            this.show.confirmView = true;
-            this.show.confirm.mitsumori = true;
-            this.show.confirm.soudan = false;
-            this.price = this.calcPrice();
+            this.show.inputForm = false
+            this.show.confirmView = true
+            this.show.confirm.mitsumori = true
+            this.show.confirm.soudan = false
+            this.price = this.calcPrice()
             this.priceWithTax =
-              this.price === "要相談" ? "要相談" : this.price * 1.1;
+              this.price === '要相談' ? '要相談' : this.price * 1.1
           },
           toSoudan() {
-            this.show.inputForm = false;
-            this.show.confirmView = true;
-            this.show.confirm.mitsumori = false;
-            this.show.confirm.soudan = true;
+            this.show.inputForm = false
+            this.show.confirmView = true
+            this.show.confirm.mitsumori = false
+            this.show.confirm.soudan = true
           },
           calcTorisuPrice(type, size, torisu) {
-            const key = `${type}_${size}_${torisu}`;
+            const key = `${type}_${size}_${torisu}`
             const table = {
               // 平型 10mm
-              "平型_①150×200 厚み10mm_1": 35000,
-              "平型_①150×200 厚み10mm_2": 38500,
-              "平型_①150×200 厚み10mm_3": 42000,
-              "平型_①150×200 厚み10mm_4": 49000,
-              "平型_①150×200 厚み10mm_5": 52500,
-              "平型_①150×200 厚み10mm_6": 56000,
-              "平型_①150×200 厚み10mm_7": 59500,
-              "平型_①150×200 厚み10mm_8": 63000,
-              "平型_①150×200 厚み10mm_9": 66500,
-              "平型_①150×200 厚み10mm_10": 70000,
-              "平型_①150×200 厚み10mm_12": 78750,
-              "平型_①150×200 厚み10mm_15": 80500,
-              "平型_①150×200 厚み10mm_16": 82250,
-              "平型_①150×200 厚み10mm_18": 84000,
-              "平型_①150×200 厚み10mm_20": 85750,
+              '平型_①150×200 厚み10mm_1': 35000,
+              '平型_①150×200 厚み10mm_2': 38500,
+              '平型_①150×200 厚み10mm_3': 42000,
+              '平型_①150×200 厚み10mm_4': 49000,
+              '平型_①150×200 厚み10mm_5': 52500,
+              '平型_①150×200 厚み10mm_6': 56000,
+              '平型_①150×200 厚み10mm_7': 59500,
+              '平型_①150×200 厚み10mm_8': 63000,
+              '平型_①150×200 厚み10mm_9': 66500,
+              '平型_①150×200 厚み10mm_10': 70000,
+              '平型_①150×200 厚み10mm_12': 78750,
+              '平型_①150×200 厚み10mm_15': 80500,
+              '平型_①150×200 厚み10mm_16': 82250,
+              '平型_①150×200 厚み10mm_18': 84000,
+              '平型_①150×200 厚み10mm_20': 85750,
               // 平型 15mm
-              "平型_②200×300 厚み15mm_1": 50000,
-              "平型_②200×300 厚み15mm_2": 55000,
-              "平型_②200×300 厚み15mm_3": 60000,
-              "平型_②200×300 厚み15mm_4": 70000,
-              "平型_②200×300 厚み15mm_5": 75000,
-              "平型_②200×300 厚み15mm_6": 80000,
-              "平型_②200×300 厚み15mm_7": 85000,
-              "平型_②200×300 厚み15mm_8": 90000,
-              "平型_②200×300 厚み15mm_9": 95000,
-              "平型_②200×300 厚み15mm_10": 100000,
-              "平型_②200×300 厚み15mm_12": 112500,
-              "平型_②200×300 厚み15mm_15": 115000,
-              "平型_②200×300 厚み15mm_16": 117500,
-              "平型_②200×300 厚み15mm_18": 120000,
-              "平型_②200×300 厚み15mm_20": 122500,
+              '平型_②200×300 厚み15mm_1': 50000,
+              '平型_②200×300 厚み15mm_2': 55000,
+              '平型_②200×300 厚み15mm_3': 60000,
+              '平型_②200×300 厚み15mm_4': 70000,
+              '平型_②200×300 厚み15mm_5': 75000,
+              '平型_②200×300 厚み15mm_6': 80000,
+              '平型_②200×300 厚み15mm_7': 85000,
+              '平型_②200×300 厚み15mm_8': 90000,
+              '平型_②200×300 厚み15mm_9': 95000,
+              '平型_②200×300 厚み15mm_10': 100000,
+              '平型_②200×300 厚み15mm_12': 112500,
+              '平型_②200×300 厚み15mm_15': 115000,
+              '平型_②200×300 厚み15mm_16': 117500,
+              '平型_②200×300 厚み15mm_18': 120000,
+              '平型_②200×300 厚み15mm_20': 122500,
               // ヌスミ型 20mm
-              "ヌスミ型_①150×200 厚み20mm_1": 60000,
-              "ヌスミ型_①150×200 厚み20mm_2": 66000,
-              "ヌスミ型_①150×200 厚み20mm_3": 72000,
-              "ヌスミ型_①150×200 厚み20mm_4": 84000,
-              "ヌスミ型_①150×200 厚み20mm_5": 90000,
-              "ヌスミ型_①150×200 厚み20mm_6": 96000,
-              "ヌスミ型_①150×200 厚み20mm_7": 102000,
-              "ヌスミ型_①150×200 厚み20mm_8": 108000,
-              "ヌスミ型_①150×200 厚み20mm_9": 114000,
-              "ヌスミ型_①150×200 厚み20mm_10": 120000,
-              "ヌスミ型_①150×200 厚み20mm_12": 135000,
-              "ヌスミ型_①150×200 厚み20mm_15": 138000,
-              "ヌスミ型_①150×200 厚み20mm_16": 141000,
-              "ヌスミ型_①150×200 厚み20mm_18": 144000,
-              "ヌスミ型_①150×200 厚み20mm_20": 147000,
+              'ヌスミ型_①150×200 厚み20mm_1': 60000,
+              'ヌスミ型_①150×200 厚み20mm_2': 66000,
+              'ヌスミ型_①150×200 厚み20mm_3': 72000,
+              'ヌスミ型_①150×200 厚み20mm_4': 84000,
+              'ヌスミ型_①150×200 厚み20mm_5': 90000,
+              'ヌスミ型_①150×200 厚み20mm_6': 96000,
+              'ヌスミ型_①150×200 厚み20mm_7': 102000,
+              'ヌスミ型_①150×200 厚み20mm_8': 108000,
+              'ヌスミ型_①150×200 厚み20mm_9': 114000,
+              'ヌスミ型_①150×200 厚み20mm_10': 120000,
+              'ヌスミ型_①150×200 厚み20mm_12': 135000,
+              'ヌスミ型_①150×200 厚み20mm_15': 138000,
+              'ヌスミ型_①150×200 厚み20mm_16': 141000,
+              'ヌスミ型_①150×200 厚み20mm_18': 144000,
+              'ヌスミ型_①150×200 厚み20mm_20': 147000,
               // ヌスミ型 30mm
-              "ヌスミ型_②200×300 厚み30mm_1": 80000,
-              "ヌスミ型_②200×300 厚み30mm_2": 88000,
-              "ヌスミ型_②200×300 厚み30mm_3": 96000,
-              "ヌスミ型_②200×300 厚み30mm_4": 112000,
-              "ヌスミ型_②200×300 厚み30mm_5": 120000,
-              "ヌスミ型_②200×300 厚み30mm_6": 128000,
-              "ヌスミ型_②200×300 厚み30mm_7": 136000,
-              "ヌスミ型_②200×300 厚み30mm_8": 144000,
-              "ヌスミ型_②200×300 厚み30mm_9": 152000,
-              "ヌスミ型_②200×300 厚み30mm_10": 160000,
-              "ヌスミ型_②200×300 厚み30mm_12": 180000,
-              "ヌスミ型_②200×300 厚み30mm_15": 184000,
-              "ヌスミ型_②200×300 厚み30mm_16": 188000,
-              "ヌスミ型_②200×300 厚み30mm_18": 192000,
-              "ヌスミ型_②200×300 厚み30mm_20": 196000
-            };
-            return table[key];
+              'ヌスミ型_②200×300 厚み30mm_1': 80000,
+              'ヌスミ型_②200×300 厚み30mm_2': 88000,
+              'ヌスミ型_②200×300 厚み30mm_3': 96000,
+              'ヌスミ型_②200×300 厚み30mm_4': 112000,
+              'ヌスミ型_②200×300 厚み30mm_5': 120000,
+              'ヌスミ型_②200×300 厚み30mm_6': 128000,
+              'ヌスミ型_②200×300 厚み30mm_7': 136000,
+              'ヌスミ型_②200×300 厚み30mm_8': 144000,
+              'ヌスミ型_②200×300 厚み30mm_9': 152000,
+              'ヌスミ型_②200×300 厚み30mm_10': 160000,
+              'ヌスミ型_②200×300 厚み30mm_12': 180000,
+              'ヌスミ型_②200×300 厚み30mm_15': 184000,
+              'ヌスミ型_②200×300 厚み30mm_16': 188000,
+              'ヌスミ型_②200×300 厚み30mm_18': 192000,
+              'ヌスミ型_②200×300 厚み30mm_20': 196000,
+            }
+            return table[key]
           },
           calcSheetPrice(type, size, sheet) {
-            const key = `${type}_${size}_${sheet}`;
+            const key = `${type}_${size}_${sheet}`
             const table = {
               // 平型 10mm
-              "平型_①150×200 厚み10mm_1": 10000,
-              "平型_①150×200 厚み10mm_2": 9500,
-              "平型_①150×200 厚み10mm_3": 9000,
-              "平型_①150×200 厚み10mm_4": 8500,
-              "平型_①150×200 厚み10mm_5": 8000,
-              "平型_①150×200 厚み10mm_6": 7500,
-              "平型_①150×200 厚み10mm_7": 7000,
-              "平型_①150×200 厚み10mm_8": 6500,
-              "平型_①150×200 厚み10mm_9": 6000,
-              "平型_①150×200 厚み10mm_10": 5500,
+              '平型_①150×200 厚み10mm_1': 10000,
+              '平型_①150×200 厚み10mm_2': 9500,
+              '平型_①150×200 厚み10mm_3': 9000,
+              '平型_①150×200 厚み10mm_4': 8500,
+              '平型_①150×200 厚み10mm_5': 8000,
+              '平型_①150×200 厚み10mm_6': 7500,
+              '平型_①150×200 厚み10mm_7': 7000,
+              '平型_①150×200 厚み10mm_8': 6500,
+              '平型_①150×200 厚み10mm_9': 6000,
+              '平型_①150×200 厚み10mm_10': 5500,
               // 平型 15mm
-              "平型_②200×300 厚み15mm_1": 12000,
-              "平型_②200×300 厚み15mm_2": 11500,
-              "平型_②200×300 厚み15mm_3": 11000,
-              "平型_②200×300 厚み15mm_4": 10500,
-              "平型_②200×300 厚み15mm_5": 10000,
-              "平型_②200×300 厚み15mm_6": 9500,
-              "平型_②200×300 厚み15mm_7": 9000,
-              "平型_②200×300 厚み15mm_8": 8500,
-              "平型_②200×300 厚み15mm_9": 8000,
-              "平型_②200×300 厚み15mm_10": 7500,
+              '平型_②200×300 厚み15mm_1': 12000,
+              '平型_②200×300 厚み15mm_2': 11500,
+              '平型_②200×300 厚み15mm_3': 11000,
+              '平型_②200×300 厚み15mm_4': 10500,
+              '平型_②200×300 厚み15mm_5': 10000,
+              '平型_②200×300 厚み15mm_6': 9500,
+              '平型_②200×300 厚み15mm_7': 9000,
+              '平型_②200×300 厚み15mm_8': 8500,
+              '平型_②200×300 厚み15mm_9': 8000,
+              '平型_②200×300 厚み15mm_10': 7500,
               // ヌスミ型 20mm
-              "ヌスミ型_①150×200 厚み20mm_1": 10000,
-              "ヌスミ型_①150×200 厚み20mm_2": 9500,
-              "ヌスミ型_①150×200 厚み20mm_3": 9000,
-              "ヌスミ型_①150×200 厚み20mm_4": 8500,
-              "ヌスミ型_①150×200 厚み20mm_5": 8000,
-              "ヌスミ型_①150×200 厚み20mm_6": 7500,
-              "ヌスミ型_①150×200 厚み20mm_7": 7000,
-              "ヌスミ型_①150×200 厚み20mm_8": 6500,
-              "ヌスミ型_①150×200 厚み20mm_9": 6000,
-              "ヌスミ型_①150×200 厚み20mm_10": 5500,
+              'ヌスミ型_①150×200 厚み20mm_1': 10000,
+              'ヌスミ型_①150×200 厚み20mm_2': 9500,
+              'ヌスミ型_①150×200 厚み20mm_3': 9000,
+              'ヌスミ型_①150×200 厚み20mm_4': 8500,
+              'ヌスミ型_①150×200 厚み20mm_5': 8000,
+              'ヌスミ型_①150×200 厚み20mm_6': 7500,
+              'ヌスミ型_①150×200 厚み20mm_7': 7000,
+              'ヌスミ型_①150×200 厚み20mm_8': 6500,
+              'ヌスミ型_①150×200 厚み20mm_9': 6000,
+              'ヌスミ型_①150×200 厚み20mm_10': 5500,
               // ヌスミ型 30mm
-              "ヌスミ型_②200×300 厚み30mm_1": 12000,
-              "ヌスミ型_②200×300 厚み30mm_2": 11500,
-              "ヌスミ型_②200×300 厚み30mm_3": 11000,
-              "ヌスミ型_②200×300 厚み30mm_4": 10500,
-              "ヌスミ型_②200×300 厚み30mm_5": 10000,
-              "ヌスミ型_②200×300 厚み30mm_6": 9500,
-              "ヌスミ型_②200×300 厚み30mm_7": 9000,
-              "ヌスミ型_②200×300 厚み30mm_8": 8500,
-              "ヌスミ型_②200×300 厚み30mm_9": 8000,
-              "ヌスミ型_②200×300 厚み30mm_10": 75000
-            };
-            return table[key] * parseInt(sheet);
+              'ヌスミ型_②200×300 厚み30mm_1': 12000,
+              'ヌスミ型_②200×300 厚み30mm_2': 11500,
+              'ヌスミ型_②200×300 厚み30mm_3': 11000,
+              'ヌスミ型_②200×300 厚み30mm_4': 10500,
+              'ヌスミ型_②200×300 厚み30mm_5': 10000,
+              'ヌスミ型_②200×300 厚み30mm_6': 9500,
+              'ヌスミ型_②200×300 厚み30mm_7': 9000,
+              'ヌスミ型_②200×300 厚み30mm_8': 8500,
+              'ヌスミ型_②200×300 厚み30mm_9': 8000,
+              'ヌスミ型_②200×300 厚み30mm_10': 75000,
+            }
+            return table[key] * parseInt(sheet)
           },
           calcPrice() {
-            if (this.kataType === "平型" || this.kataType === "ヌスミ型") {
-              if (this.mitsumori.sheet === "10枚以上") {
-                return "要相談";
+            if (this.kataType === '平型' || this.kataType === 'ヌスミ型') {
+              if (this.mitsumori.sheet === '10枚以上') {
+                return '要相談'
               }
-              const type = this.kataType;
-              const size = this.mitsumori.size;
-              const torisu = this.mitsumori.torisu;
-              const sheet = this.mitsumori.sheet;
-              const torisuPrice = this.calcTorisuPrice(type, size, torisu);
-              const sheetPrice = this.calcSheetPrice(type, size, sheet);
-              return torisuPrice + sheetPrice;
+              const type = this.kataType
+              const size = this.mitsumori.size
+              const torisu = this.mitsumori.torisu
+              const sheet = this.mitsumori.sheet
+              const torisuPrice = this.calcTorisuPrice(type, size, torisu)
+              const sheetPrice = this.calcSheetPrice(type, size, sheet)
+              return torisuPrice + sheetPrice
             } else {
-              return "要相談";
+              return '要相談'
             }
-          }
+          },
         },
         filters: {
           array2String: function(value) {
-            if (!value) return "";
-            return value.join(",");
+            if (!value) return ''
+            return value.join(',')
           },
           yenPrice: function(value) {
-            if (value === "要相談") {
-              return "要相談";
+            if (value === '要相談') {
+              return '要相談'
             }
-            const formatter = new Intl.NumberFormat("ja-JP");
-            return `¥${formatter.format(value)}~`;
+            const formatter = new Intl.NumberFormat('ja-JP')
+            return `¥${formatter.format(value)}~`
           },
           attention: function(value) {
-            if (value === "要相談") {
-              return "要相談";
+            if (value === '要相談') {
+              return '要相談'
             }
-            return `${value} ※デザイン料（3Dデータ化）が別途かかります。`;
-          }
-        }
-      });
+            return `${value} ※デザイン料（3Dデータ化）が別途かかります。`
+          },
+        },
+      })
     </script>
   </body>
 </html>
