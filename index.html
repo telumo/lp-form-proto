@@ -447,8 +447,191 @@
           <!-- 入力項目（ここまで） -->
 
           <!-- 確認項目（ここから） -->
-          <v-container v-show="show.confirm"> ほげ </v-container>
-          <!-- 確認項目 -->
+          <v-container v-show="show.confirmView">
+            <!-- 基本情報（ここから） -->
+            <v-row>
+              <v-col cols="12" class="headline"> 基本情報 </v-col>
+            </v-row>
+            <v-row>
+              <v-container fluid>
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>会社名</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ common.companyName }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>担当者名前</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ common.name }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>電話番号（半角）</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ common.phoneNumber }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>メールアドレス（半角）</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ common.email }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>ご住所</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ common.address }} </v-col>
+                </v-row>
+              </v-container>
+            </v-row>
+            <!-- 基本情報（ここまで） -->
+
+            <!-- 見積もり内容（ここから） -->
+            <v-row v-show="show.confirm.mitsumori">
+              <v-col cols="12" class="headline"> 見積もり内容（確認） </v-col>
+            </v-row>
+            <v-row v-show="show.confirm.mitsumori">
+              <v-container fluid>
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>制作項目</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ mitsumori.item | array2String }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>使用用途</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ mitsumori.use }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>具体的用途</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ mitsumori.concrete }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>発注時期</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ mitsumori.orderDate }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>希望納期</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ mitsumori.deliverlyDate }} </v-col>
+                </v-row>
+              </v-container>
+            </v-row>
+
+            <v-row v-show="show.confirm.mitsumori">
+              <v-container fluid>
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>型形式</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>型サイズ</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>取り数</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>シート枚数</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>料金</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>料金（税込）</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> </v-col>
+                </v-row>
+              </v-container>
+            </v-row>
+            <!-- 見積もり内容（ここまで） -->
+
+            <!-- 相談内容（ここから） -->
+            <v-row v-show="show.confirm.soudan">
+              <v-col cols="12" class="headline"> ご相談内容（確認） </v-col>
+            </v-row>
+            <v-row v-show="show.confirm.soudan">
+              <v-container fluid>
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>制作項目</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ soudan.item | array2String }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>使用用途</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ soudan.use }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>発注時期</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ soudan.orderDate }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>希望納期</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ soudan.deliverlyDate }} </v-col>
+                </v-row>
+
+                <v-row>
+                  <v-col cols="4">
+                    <v-subheader>お問い合わせ内容</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ soudan.comment }} </v-col>
+                </v-row>
+              </v-container>
+            </v-row>
+            <!-- 相談内容（ここまで） -->
+
+            <v-row>
+              <v-spacer></v-spacer>
+              <v-btn class="success">送信</v-btn>
+            </v-row>
+          </v-container>
+          <!-- 確認項目（ここまで） -->
         </v-main>
       </v-app>
     </div>
@@ -513,12 +696,16 @@
           kataType: "",
           show: {
             inputForm: true,
-            confirm: false,
+            confirmView: false,
             mitsumori: false,
             soudan: false,
             typeHira: false,
             typeNusumi: false,
-            typeOther: false
+            typeOther: false,
+            confirm: {
+              mitsumori: false,
+              soudan: false
+            }
           },
           mitsumori: {
             item: "",
@@ -558,6 +745,9 @@
               case "わからない":
                 this.show.mitsumori = false;
                 this.show.soudan = true;
+                this.show.typeHira = false;
+                this.show.typeNusumi = false;
+                this.show.typeOther = false;
                 break;
 
               default:
@@ -573,11 +763,21 @@
         methods: {
           toMitsumori() {
             this.show.inputForm = false;
-            this.show.confirm = true;
+            this.show.confirmView = true;
+            this.show.confirm.mitsumori = true;
+            this.show.confirm.soudan = false;
           },
           toSoudan() {
             this.show.inputForm = false;
-            this.show.confirm = true;
+            this.show.confirmView = true;
+            this.show.confirm.mitsumori = false;
+            this.show.confirm.soudan = true;
+          }
+        },
+        filters: {
+          array2String: function(value) {
+            if (!value) return "";
+            return value.join(",");
           }
         }
       });
