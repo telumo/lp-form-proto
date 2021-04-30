@@ -61,16 +61,17 @@
       <v-col sm="4" cols="12">
         <v-subheader>型形式</v-subheader>
       </v-col>
-      <v-radio-group v-model="kataType">
-        <v-radio
-          v-for="n in kataTypes"
-          :key="n"
-          :label="n"
-          :value="n"
-        ></v-radio>
-      </v-radio-group>
+      <v-col sm="8" cols="12">
+        <v-radio-group v-model="kataType">
+          <v-radio
+            v-for="n in kataTypes"
+            :key="n"
+            :label="n"
+            :value="n"
+          ></v-radio>
+        </v-radio-group>
+      </v-col>
     </v-row>
-
 
     <!-- 見積もり -->
     <div v-if="showMitsumori">
@@ -145,11 +146,10 @@
       </v-row>
 
       <!-- hira -->
-      <div v-if="showSoudan">
-      <v-row>
-        <v-col cols="12" class="headline"> ■{{kataType}}入力項目 </v-col>
+      <v-row v-if="showTypeHira">
+        <v-col cols="12" class="headline"> ■{{ kataType }}入力項目 </v-col>
         <v-col sm="4" cols="12">
-          <v-subheader>{{kataType}} 樹脂型サイズ</v-subheader>
+          <v-subheader>{{ kataType }} 樹脂型サイズ</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
           <v-select
@@ -159,7 +159,9 @@
           ></v-select>
         </v-col>
         <v-col sm="4" cols="12">
-          <v-subheader>製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader>
+          <v-subheader
+            >製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader
+          >
         </v-col>
         <v-col sm="8" cols="12">
           <v-select :items="torisu" label="製品の取り数" outlined></v-select>
@@ -173,20 +175,22 @@
       </v-row>
 
       <!-- nusumi -->
-      <v-row>
-        <v-col cols="12" class="headline"> ■{{kataType}}入力項目 </v-col>
+      <v-row v-if="showTypeNusumi">
+        <v-col cols="12" class="headline"> ■{{ kataType }}入力項目 </v-col>
         <v-col sm="4" cols="12">
-          <v-subheader>{{kataType}} 樹脂型サイズ</v-subheader>
+          <v-subheader>{{ kataType }} 樹脂型サイズ</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
           <v-select
-            :items="hiragataSizes"
+            :items="nusumiSizes"
             :label="`${kataType}樹脂型サイズ`"
             outlined
           ></v-select>
         </v-col>
         <v-col sm="4" cols="12">
-          <v-subheader>製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader>
+          <v-subheader
+            >製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader
+          >
         </v-col>
         <v-col sm="8" cols="12">
           <v-select :items="torisu" label="製品の取り数" outlined></v-select>
@@ -199,10 +203,9 @@
         </v-col>
       </v-row>
 
-
       <!-- other -->
-      <v-row v-show="showType4">
-        <v-col cols="12" class="headline"> ■ヌスミ両面型 </v-col>
+      <v-row v-show="showTypeOther">
+        <v-col cols="12" class="headline"> ■{{ kataType }}両面型 </v-col>
         <v-col sm="4" cols="12">
           <v-subheader>制作個数</v-subheader>
         </v-col>
@@ -257,8 +260,6 @@
           <v-textarea outlined label="お問い合わせ内容"></v-textarea>
         </v-col>
       </v-row>
-
-
 
       <v-row>
         <v-spacer />
@@ -353,7 +354,14 @@ export default {
     return {
       formTypes: ["選択してください", "見積もり依頼", "ご相談"],
       createTypes: ["試作/テスト品", "量産"],
-      kataTypes: ["平型","ヌスミ型","平型両面","ヌスミ両面型","容器型","わからない"],
+      kataTypes: [
+        "平型",
+        "ヌスミ型",
+        "平型両面",
+        "ヌスミ両面型",
+        "容器型",
+        "わからない",
+      ],
       kataType: null,
       usings: ["食品用", "工業用", "その他"],
       hiragataSizes: ["①150×200 厚み10mm", "②200×300 厚み15mm"],
@@ -382,156 +390,16 @@ export default {
       type4: "",
       type5: "",
       type6: "",
-      showType1: false,
-      showType2: false,
-      showType3: false,
-      showType4: false,
-      showType5: false,
-      showType6: false,
+      showTypeHira: false,
+      showTypeNusumi: false,
+      showTypeOther: false,
       showMitsumori: false,
       showSoudan: false,
-      price: {
-        hira: {
-          size: {
-            thickness10: {
-              1: 35000,
-              2: 38500,
-              3: 42000,
-              4: 49000,
-              5: 52500,
-              6: 56000,
-              7: 59500,
-              8: 63000,
-              9: 66500,
-              10: 70000,
-              12: 78750,
-              15: 80500,
-              16: 82250,
-              18: 84000,
-              20: 85750,
-            },
-            thickness15: {
-              1: 50000,
-              2: 55000,
-              3: 60000,
-              4: 70000,
-              5: 75000,
-              6: 80000,
-              7: 85000,
-              8: 90000,
-              9: 95000,
-              10: 100000,
-              12: 112500,
-              15: 115000,
-              16: 117500,
-              18: 120000,
-              20: 122500,
-            },
-          },
-          sheetUnit: {
-            thickness10: {
-              1: 10000,
-              2: 9500,
-              3: 9000,
-              4: 8500,
-              5: 8000,
-              6: 7500,
-              7: 7000,
-              8: 6500,
-              9: 6000,
-              10: 5500,
-            },
-            thickness15: {
-              1: 12000,
-              2: 11500,
-              3: 11000,
-              4: 10500,
-              5: 10000,
-              6: 9500,
-              7: 9000,
-              8: 8500,
-              9: 8000,
-              10: 7500,
-            },
-          },
-        },
-        nusumi: {
-          size: {
-            thickness20: {
-              1: 60000,
-              2: 66000,
-              3: 72000,
-              4: 84000,
-              5: 90000,
-              6: 96000,
-              7: 102000,
-              8: 108000,
-              9: 114000,
-              10: 120000,
-              12: 135000,
-              15: 138000,
-              16: 141000,
-              18: 144000,
-              20: 147000,
-            },
-            thickness30: {
-              1: 80000,
-              2: 88000,
-              3: 96000,
-              4: 112000,
-              5: 120000,
-              6: 128000,
-              7: 136000,
-              8: 144000,
-              9: 152000,
-              10: 160000,
-              12: 180000,
-              15: 184000,
-              16: 188000,
-              18: 192000,
-              20: 196000,
-            },
-          },
-          sheetUnit: {
-            thickness20: {
-              1: 10000,
-              2: 9500,
-              3: 9000,
-              4: 8500,
-              5: 8000,
-              6: 7500,
-              7: 7000,
-              8: 6500,
-              9: 6000,
-              10: 5500,
-            },
-            thickness30: {
-              1: 12000,
-              2: 11500,
-              3: 11000,
-              4: 10500,
-              5: 10000,
-              6: 9500,
-              7: 9000,
-              8: 8500,
-              9: 8000,
-              10: 7500,
-            },
-          },
-        },
-      },
     };
   },
   computed: {
     showEstimate() {
-      return (
-        this.showType1 ||
-        this.showType2 ||
-        this.showType3 ||
-        this.showType4 ||
-        this.showType5 ||
-        this.showType6
-      );
+      return this.showTypeHira || this.showTypeNusumi || this.showTypeOther;
     },
     companyName: {
       get() {
@@ -665,37 +533,39 @@ export default {
   watch: {
     kataType: function (value) {
       // "見積もり依頼", "ご相談"
-      if (value === "わからない") {
-        this.showMitsumori = false;
-        this.showSoudan = true;
-      } else if (value !== "わからない") {
-        this.showMitsumori = true;
-        this.showSoudan = false;
-      } else {
-        this.showMitsumori = false;
-        this.showSoudan = false;
+      switch (value) {
+        case "平型":
+          this.showMitsumori = true;
+          this.showSoudan = false;
+          this.showTypeHira = true;
+          this.showTypeNusumi = false;
+          this.showTypeOther = false;
+          break;
+
+        case "ヌスミ型":
+          this.showMitsumori = true;
+          this.showSoudan = false;
+          this.showTypeHira = false;
+          this.showTypeNusumi = true;
+          this.showTypeOther = false;
+          break;
+
+        case "わからない":
+          this.showMitsumori = false;
+          this.showSoudan = true;
+          break;
+
+        default:
+          this.showMitsumori = true;
+          this.showTypeHira = false;
+          this.showTypeNusumi = false;
+          this.showTypeOther = true;
+          this.showSoudan = false;
+          break;
       }
     },
   },
   methods: {
-    changeType1(value) {
-      this.showType1 = value;
-    },
-    changeType2(value) {
-      this.showType2 = value;
-    },
-    changeType3(value) {
-      this.showType3 = value;
-    },
-    changeType4(value) {
-      this.showType4 = value;
-    },
-    changeType5(value) {
-      this.showType5 = value;
-    },
-    changeType6(value) {
-      this.showType6 = value;
-    },
     toSoudan() {
       this.$router.push("/confirm/soudan");
     },
