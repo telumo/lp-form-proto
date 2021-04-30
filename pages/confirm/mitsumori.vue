@@ -133,8 +133,8 @@ export default {
           size: "①150×200 厚み10mm",
           count: 4,
           plateCount: 2,
-          price: "¥10,000",
-          priceWithTax: "¥11,000",
+          price: "¥68,000",
+          priceWithTax: "¥74,800",
         },
         {
           name: "平型",
@@ -149,8 +149,8 @@ export default {
           size: "②200×300 厚み30mm",
           count: 16,
           plateCount: 5,
-          price: "¥20,000",
-          priceWithTax: "¥22,000",
+          price: "¥181,000",
+          priceWithTax: "¥199,100",
         },
         {
           name: "ヌスミ型",
