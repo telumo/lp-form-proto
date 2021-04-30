@@ -28,7 +28,7 @@
       <v-app>
         <v-main>
           <!-- 入力項目（ここから） -->
-          <v-container v-show="show.inputForm">
+          <v-container class="mb-5" v-show="show.inputForm">
             <!-- 共通項目（ここから） -->
             <v-row>
               <v-col cols="12" class="headline"> ■共通入力項目 </v-col>
@@ -130,6 +130,7 @@
                     :items="master.hiragataSizes"
                     :label="`${kataType}樹脂型サイズ`"
                     outlined
+                    v-model="mitsumori.size"
                   ></v-select>
                 </v-col>
                 <v-col sm="4" cols="12">
@@ -143,6 +144,7 @@
                     :items="master.torisu"
                     label="製品の取り数"
                     outlined
+                    v-model="mitsumori.torisu"
                   ></v-select>
                 </v-col>
                 <v-col sm="4" cols="12">
@@ -153,6 +155,7 @@
                     :items="master.sheets"
                     label="シート枚数"
                     outlined
+                    v-model="mitsumori.sheet"
                   ></v-select>
                 </v-col>
               </v-row>
@@ -168,6 +171,7 @@
                     :items="master.nusumiSizes"
                     :label="`${kataType}樹脂型サイズ`"
                     outlined
+                    v-model="mitsumori.size"
                   ></v-select>
                 </v-col>
                 <v-col sm="4" cols="12">
@@ -181,6 +185,7 @@
                     :items="master.torisu"
                     label="製品の取り数"
                     outlined
+                    v-model="mitsumori.torisu"
                   ></v-select>
                 </v-col>
                 <v-col sm="4" cols="12">
@@ -191,6 +196,7 @@
                     :items="master.sheets"
                     label="シート枚数"
                     outlined
+                    v-model="mitsumori.sheet"
                   ></v-select>
                 </v-col>
               </v-row>
@@ -216,6 +222,7 @@
                     outlined
                     label="製品サイズ"
                     placeholder="例：200×100×30(mm)"
+                    v-model="mitsumori.size"
                   ></v-text-field>
                 </v-col>
 
@@ -249,7 +256,11 @@
                   <v-subheader>お問い合わせ内容</v-subheader>
                 </v-col>
                 <v-col sm="8" cols="12">
-                  <v-textarea outlined label="お問い合わせ内容"></v-textarea>
+                  <v-textarea
+                    outlined
+                    label="お問い合わせ内容"
+                    v-model="mitsumori.comment"
+                  ></v-textarea>
                 </v-col>
               </v-row>
               <!-- その他の型（ここまで） -->
@@ -447,7 +458,7 @@
           <!-- 入力項目（ここまで） -->
 
           <!-- 確認項目（ここから） -->
-          <v-container v-show="show.confirmView">
+          <v-container class="mb-5" v-show="show.confirmView">
             <!-- 基本情報（ここから） -->
             <v-row>
               <v-col cols="12" class="headline"> 基本情報 </v-col>
@@ -541,28 +552,35 @@
                   <v-col cols="4">
                     <v-subheader>型形式</v-subheader>
                   </v-col>
-                  <v-col cols="8"> </v-col>
+                  <v-col cols="8"> {{ kataType }} </v-col>
                 </v-row>
 
-                <v-row>
+                <v-row v-if="mitsumori.size">
                   <v-col cols="4">
                     <v-subheader>型サイズ</v-subheader>
                   </v-col>
-                  <v-col cols="8"> </v-col>
+                  <v-col cols="8"> {{ mitsumori.size }} </v-col>
                 </v-row>
 
-                <v-row>
+                <v-row v-if="mitsumori.torisu">
                   <v-col cols="4">
                     <v-subheader>取り数</v-subheader>
                   </v-col>
-                  <v-col cols="8"> </v-col>
+                  <v-col cols="8"> {{ mitsumori.torisu }} </v-col>
                 </v-row>
 
                 <v-row>
                   <v-col cols="4">
                     <v-subheader>シート枚数</v-subheader>
                   </v-col>
-                  <v-col cols="8"> </v-col>
+                  <v-col cols="8"> {{ mitsumori.sheet }} </v-col>
+                </v-row>
+
+                <v-row v-if="mitsumori.comment">
+                  <v-col cols="4">
+                    <v-subheader>お問い合わせ内容</v-subheader>
+                  </v-col>
+                  <v-col cols="8"> {{ mitsumori.comment }} </v-col>
                 </v-row>
 
                 <v-row>
@@ -712,7 +730,11 @@
             use: "",
             concrete: "",
             orderDate: "",
-            deliverlyDate: ""
+            deliverlyDate: "",
+            torisu: "",
+            size: "",
+            sheet: "",
+            comment: ""
           },
           soudan: {
             item: "",
