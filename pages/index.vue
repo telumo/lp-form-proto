@@ -57,20 +57,20 @@
         <v-text-field outlined label="ご住所" v-model="address"></v-text-field>
       </v-col>
     </v-row>
-
     <v-row>
       <v-col sm="4" cols="12">
-        <v-subheader>お問い合わせ項目</v-subheader>
+        <v-subheader>型形式</v-subheader>
       </v-col>
-      <v-col sm="8" cols="12">
-        <v-select
-          :items="formTypes"
-          label="お問い合わせ項目"
-          outlined
-          v-model="selectedFormType"
-        ></v-select>
-      </v-col>
+      <v-radio-group v-model="kataType">
+        <v-radio
+          v-for="n in kataTypes"
+          :key="n"
+          :label="n"
+          :value="n"
+        ></v-radio>
+      </v-radio-group>
     </v-row>
+
 
     <!-- 見積もり -->
     <div v-if="showMitsumori">
@@ -144,67 +144,22 @@
         </v-col>
       </v-row>
 
+      <!-- hira -->
+      <div v-if="showSoudan">
       <v-row>
+        <v-col cols="12" class="headline"> ■{{kataType}}入力項目 </v-col>
         <v-col sm="4" cols="12">
-          <v-subheader>型形式</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-checkbox
-            v-model="type1"
-            label="平型"
-            hide-details
-            @change="changeType1"
-          ></v-checkbox>
-          <v-checkbox
-            v-model="type2"
-            label="ヌスミ型"
-            hide-details
-            @change="changeType2"
-          ></v-checkbox>
-          <v-checkbox
-            v-model="type3"
-            label="平型両面"
-            hide-details
-            @change="changeType3"
-          ></v-checkbox>
-          <v-checkbox
-            v-model="type4"
-            label="ヌスミ両面型"
-            hide-details
-            @change="changeType4"
-          ></v-checkbox>
-          <v-checkbox
-            v-model="type5"
-            label="容器型"
-            hide-details
-            @change="changeType5"
-          ></v-checkbox>
-          <v-checkbox
-            v-model="type6"
-            label="その他異形"
-            hide-details
-            @change="changeType6"
-          ></v-checkbox>
-        </v-col>
-      </v-row>
-
-      <!-- 平型 -->
-      <v-row v-show="showType1">
-        <v-col cols="12" class="headline"> ■平型入力項目 </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>平型 樹脂型サイズ</v-subheader>
+          <v-subheader>{{kataType}} 樹脂型サイズ</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
           <v-select
             :items="hiragataSizes"
-            label="平型 樹脂型サイズ"
+            :label="`${kataType}樹脂型サイズ`"
             outlined
           ></v-select>
         </v-col>
         <v-col sm="4" cols="12">
-          <v-subheader
-            >製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader
-          >
+          <v-subheader>製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
           <v-select :items="torisu" label="製品の取り数" outlined></v-select>
@@ -216,23 +171,22 @@
           <v-select :items="sheets" label="シート枚数" outlined></v-select>
         </v-col>
       </v-row>
-      <!-- ヌスミ型 -->
-      <v-row v-show="showType2">
-        <v-col cols="12" class="headline"> ■ヌスミ型入力項目 </v-col>
+
+      <!-- nusumi -->
+      <v-row>
+        <v-col cols="12" class="headline"> ■{{kataType}}入力項目 </v-col>
         <v-col sm="4" cols="12">
-          <v-subheader>ヌスミ 樹脂型サイズ</v-subheader>
+          <v-subheader>{{kataType}} 樹脂型サイズ</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
           <v-select
-            :items="nusumiSizes"
-            label="ヌスミ 樹脂型サイズ"
+            :items="hiragataSizes"
+            :label="`${kataType}樹脂型サイズ`"
             outlined
           ></v-select>
         </v-col>
         <v-col sm="4" cols="12">
-          <v-subheader
-            >製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader
-          >
+          <v-subheader>製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
           <v-select :items="torisu" label="製品の取り数" outlined></v-select>
@@ -245,65 +199,8 @@
         </v-col>
       </v-row>
 
-      <!-- 平型両面 -->
-      <v-row v-show="showType3">
-        <v-col cols="12" class="headline"> ■平型両面項目 </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>制作個数</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field
-            outlined
-            label="制作個数"
-            placeholder="例：試作品5個、量産300個"
-          ></v-text-field>
-        </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>製品サイズ(型1つのサイズ)</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field
-            outlined
-            label="製品サイズ"
-            placeholder="例：200×100×30(mm)"
-          ></v-text-field>
-        </v-col>
 
-        <v-col sm="4" cols="12">
-          <v-subheader>添付ファイル１（5MBまで）</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-file-input
-            label="添付ファイル１"
-            placeholder="ファイルを選択してください"
-            prepend-icon="mdi-paperclip"
-            outlined
-          >
-          </v-file-input>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>添付ファイル2（5MBまで）</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-file-input
-            label="添付ファイル2"
-            placeholder="ファイルを選択してください"
-            prepend-icon="mdi-paperclip"
-            outlined
-          >
-          </v-file-input>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>お問い合わせ内容</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-textarea outlined label="お問い合わせ内容"></v-textarea>
-        </v-col>
-      </v-row>
-
-      <!-- ヌスミ両面型 -->
+      <!-- other -->
       <v-row v-show="showType4">
         <v-col cols="12" class="headline"> ■ヌスミ両面型 </v-col>
         <v-col sm="4" cols="12">
@@ -361,121 +258,7 @@
         </v-col>
       </v-row>
 
-      <!-- 容器型 -->
-      <v-row v-show="showType5">
-        <v-col cols="12" class="headline"> ■容器型 </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>制作個数</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field
-            outlined
-            label="制作個数"
-            placeholder="例：試作品5個、量産300個"
-          ></v-text-field>
-        </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>製品サイズ(型1つのサイズ)</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field
-            outlined
-            label="製品サイズ"
-            placeholder="例：200×100×30(mm)"
-          ></v-text-field>
-        </v-col>
 
-        <v-col sm="4" cols="12">
-          <v-subheader>添付ファイル１（5MBまで）</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-file-input
-            label="添付ファイル１"
-            placeholder="ファイルを選択してください"
-            prepend-icon="mdi-paperclip"
-            outlined
-          >
-          </v-file-input>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>添付ファイル2（5MBまで）</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-file-input
-            label="添付ファイル2"
-            placeholder="ファイルを選択してください"
-            prepend-icon="mdi-paperclip"
-            outlined
-          >
-          </v-file-input>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>お問い合わせ内容</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-textarea outlined label="お問い合わせ内容"></v-textarea>
-        </v-col>
-      </v-row>
-
-      <!-- その他異形 -->
-      <v-row v-show="showType6">
-        <v-col cols="12" class="headline"> ■その他異形 </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>制作個数</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field
-            outlined
-            label="制作個数"
-            placeholder="例：試作品5個、量産300個"
-          ></v-text-field>
-        </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>製品サイズ(型1つのサイズ)</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field
-            outlined
-            label="製品サイズ"
-            placeholder="例：200×100×30(mm)"
-          ></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>添付ファイル１（5MBまで）</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-file-input
-            label="添付ファイル１"
-            placeholder="ファイルを選択してください"
-            prepend-icon="mdi-paperclip"
-            outlined
-          >
-          </v-file-input>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>添付ファイル2（5MBまで）</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-file-input
-            label="添付ファイル2"
-            placeholder="ファイルを選択してください"
-            prepend-icon="mdi-paperclip"
-            outlined
-          >
-          </v-file-input>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>お問い合わせ内容</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-textarea outlined label="お問い合わせ内容"></v-textarea>
-        </v-col>
-      </v-row>
 
       <v-row>
         <v-spacer />
@@ -569,7 +352,9 @@ export default {
   data() {
     return {
       formTypes: ["選択してください", "見積もり依頼", "ご相談"],
-      createTypes: ["試作", "テスト品", "量産"],
+      createTypes: ["試作/テスト品", "量産"],
+      kataTypes: ["平型","ヌスミ型","平型両面","ヌスミ両面型","容器型","わからない"],
+      kataType: null,
       usings: ["食品用", "工業用", "その他"],
       hiragataSizes: ["①150×200 厚み10mm", "②200×300 厚み15mm"],
       nusumiSizes: ["①150×200 厚み20mm", "②200×300 厚み30mm"],
@@ -878,14 +663,14 @@ export default {
     },
   },
   watch: {
-    selectedFormType: function (value) {
+    kataType: function (value) {
       // "見積もり依頼", "ご相談"
-      if (value === "見積もり依頼") {
-        this.showMitsumori = true;
-        this.showSoudan = false;
-      } else if (value === "ご相談") {
+      if (value === "わからない") {
         this.showMitsumori = false;
         this.showSoudan = true;
+      } else if (value !== "わからない") {
+        this.showMitsumori = true;
+        this.showSoudan = false;
       } else {
         this.showMitsumori = false;
         this.showSoudan = false;
