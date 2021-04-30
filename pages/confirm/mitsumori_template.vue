@@ -149,7 +149,7 @@ export default {
           priceWithTax: "要相談",
         },
         {
-          name: "デザイン料",
+          name: "デザイン料（3Dデータ化）",
           size: "",
           count: "",
           plateCount: "",
