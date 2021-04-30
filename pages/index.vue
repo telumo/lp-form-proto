@@ -75,6 +75,119 @@
 
     <!-- 見積もり -->
     <div v-if="showMitsumori">
+      <!-- hira -->
+      <v-row v-if="showTypeHira">
+        <v-col sm="4" cols="12">
+          <v-subheader>{{ kataType }} 樹脂型サイズ</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-select
+            :items="hiragataSizes"
+            :label="`${kataType}樹脂型サイズ`"
+            outlined
+          ></v-select>
+        </v-col>
+        <v-col sm="4" cols="12">
+          <v-subheader
+            >製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader
+          >
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-select :items="torisu" label="製品の取り数" outlined></v-select>
+        </v-col>
+        <v-col sm="4" cols="12">
+          <v-subheader>シート枚数</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-select :items="sheets" label="シート枚数" outlined></v-select>
+        </v-col>
+      </v-row>
+
+      <!-- nusumi -->
+      <v-row v-if="showTypeNusumi">
+        <v-col sm="4" cols="12">
+          <v-subheader>{{ kataType }} 樹脂型サイズ</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-select
+            :items="nusumiSizes"
+            :label="`${kataType}樹脂型サイズ`"
+            outlined
+          ></v-select>
+        </v-col>
+        <v-col sm="4" cols="12">
+          <v-subheader
+            >製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader
+          >
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-select :items="torisu" label="製品の取り数" outlined></v-select>
+        </v-col>
+        <v-col sm="4" cols="12">
+          <v-subheader>シート枚数</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-select :items="sheets" label="シート枚数" outlined></v-select>
+        </v-col>
+      </v-row>
+
+      <!-- other -->
+      <v-row v-show="showTypeOther">
+        <v-col sm="4" cols="12">
+          <v-subheader>制作個数</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-text-field
+            outlined
+            label="制作個数"
+            placeholder="例：試作品5個、量産300個"
+          ></v-text-field>
+        </v-col>
+        <v-col sm="4" cols="12">
+          <v-subheader>製品サイズ(型1つのサイズ)</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-text-field
+            outlined
+            label="製品サイズ"
+            placeholder="例：200×100×30(mm)"
+          ></v-text-field>
+        </v-col>
+
+        <v-col sm="4" cols="12">
+          <v-subheader>添付ファイル１（5MBまで）</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-file-input
+            label="添付ファイル１"
+            placeholder="ファイルを選択してください"
+            prepend-icon="mdi-paperclip"
+            outlined
+          >
+          </v-file-input>
+        </v-col>
+
+        <v-col sm="4" cols="12">
+          <v-subheader>添付ファイル2（5MBまで）</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-file-input
+            label="添付ファイル2"
+            placeholder="ファイルを選択してください"
+            prepend-icon="mdi-paperclip"
+            outlined
+          >
+          </v-file-input>
+        </v-col>
+
+        <v-col sm="4" cols="12">
+          <v-subheader>お問い合わせ内容</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-textarea outlined label="お問い合わせ内容"></v-textarea>
+        </v-col>
+      </v-row>
+
       <v-row>
         <v-col sm="4" cols="12">
           <v-subheader>制作項目</v-subheader>
@@ -142,122 +255,6 @@
             label="希望納期"
             v-model="mitsumoriDeliverlyDate"
           ></v-text-field>
-        </v-col>
-      </v-row>
-
-      <!-- hira -->
-      <v-row v-if="showTypeHira">
-        <v-col cols="12" class="headline"> ■{{ kataType }}入力項目 </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>{{ kataType }} 樹脂型サイズ</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-select
-            :items="hiragataSizes"
-            :label="`${kataType}樹脂型サイズ`"
-            outlined
-          ></v-select>
-        </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader
-            >製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader
-          >
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-select :items="torisu" label="製品の取り数" outlined></v-select>
-        </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>シート枚数</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-select :items="sheets" label="シート枚数" outlined></v-select>
-        </v-col>
-      </v-row>
-
-      <!-- nusumi -->
-      <v-row v-if="showTypeNusumi">
-        <v-col cols="12" class="headline"> ■{{ kataType }}入力項目 </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>{{ kataType }} 樹脂型サイズ</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-select
-            :items="nusumiSizes"
-            :label="`${kataType}樹脂型サイズ`"
-            outlined
-          ></v-select>
-        </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader
-            >製品の取り数（製作個数 ※シート1枚に作る型の個数）</v-subheader
-          >
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-select :items="torisu" label="製品の取り数" outlined></v-select>
-        </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>シート枚数</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-select :items="sheets" label="シート枚数" outlined></v-select>
-        </v-col>
-      </v-row>
-
-      <!-- other -->
-      <v-row v-show="showTypeOther">
-        <v-col cols="12" class="headline"> ■{{ kataType }}両面型 </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>制作個数</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field
-            outlined
-            label="制作個数"
-            placeholder="例：試作品5個、量産300個"
-          ></v-text-field>
-        </v-col>
-        <v-col sm="4" cols="12">
-          <v-subheader>製品サイズ(型1つのサイズ)</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-text-field
-            outlined
-            label="製品サイズ"
-            placeholder="例：200×100×30(mm)"
-          ></v-text-field>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>添付ファイル１（5MBまで）</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-file-input
-            label="添付ファイル１"
-            placeholder="ファイルを選択してください"
-            prepend-icon="mdi-paperclip"
-            outlined
-          >
-          </v-file-input>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>添付ファイル2（5MBまで）</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-file-input
-            label="添付ファイル2"
-            placeholder="ファイルを選択してください"
-            prepend-icon="mdi-paperclip"
-            outlined
-          >
-          </v-file-input>
-        </v-col>
-
-        <v-col sm="4" cols="12">
-          <v-subheader>お問い合わせ内容</v-subheader>
-        </v-col>
-        <v-col sm="8" cols="12">
-          <v-textarea outlined label="お問い合わせ内容"></v-textarea>
         </v-col>
       </v-row>
 
