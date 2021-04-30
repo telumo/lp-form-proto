@@ -301,6 +301,36 @@
 
       <v-row>
         <v-col sm="4" cols="12">
+          <v-subheader>添付ファイル１（5MBまで）</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-file-input
+            label="添付ファイル１"
+            placeholder="ファイルを選択してください"
+            prepend-icon="mdi-paperclip"
+            outlined
+          >
+          </v-file-input>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col sm="4" cols="12">
+          <v-subheader>添付ファイル2（5MBまで）</v-subheader>
+        </v-col>
+        <v-col sm="8" cols="12">
+          <v-file-input
+            label="添付ファイル2"
+            placeholder="ファイルを選択してください"
+            prepend-icon="mdi-paperclip"
+            outlined
+          >
+          </v-file-input>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col sm="4" cols="12">
           <v-subheader>発注時期</v-subheader>
         </v-col>
         <v-col sm="8" cols="12">
