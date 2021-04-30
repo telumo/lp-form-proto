@@ -93,42 +93,42 @@
           <v-col cols="4">
             <v-subheader>型形式</v-subheader>
           </v-col>
-          <v-col cols="8"> {{ mitsumoriItem }} </v-col>
+          <v-col cols="8"> </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>型サイズ</v-subheader>
           </v-col>
-          <v-col cols="8"> {{ mitsumoriItem }} </v-col>
+          <v-col cols="8"> </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>取り数</v-subheader>
           </v-col>
-          <v-col cols="8"> {{ mitsumoriUse }} </v-col>
+          <v-col cols="8"> </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>シート枚数</v-subheader>
           </v-col>
-          <v-col cols="8"> {{ mitsumoriConcrete }} </v-col>
+          <v-col cols="8"> </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>料金</v-subheader>
           </v-col>
-          <v-col cols="8"> {{ mitsumoriOrderDate }} </v-col>
+          <v-col cols="8"> </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="4">
             <v-subheader>料金（税込）</v-subheader>
           </v-col>
-          <v-col cols="8"> {{ mitsumoriDeliverlyDate }} </v-col>
+          <v-col cols="8"> </v-col>
         </v-row>
       </v-container>
     </v-row>
@@ -144,98 +144,7 @@
 <script>
 export default {
   data() {
-    return {
-      items: [
-        {
-          name: "平型",
-          size: "①150×200 厚み10mm",
-          count: 4,
-          plateCount: 2,
-          price: "¥68,000",
-          priceWithTax: "¥74,800",
-        },
-        {
-          name: "平型",
-          size: "①150×200 厚み10mm",
-          count: 4,
-          plateCount: "10枚以上",
-          price: "要相談",
-          priceWithTax: "要相談",
-        },
-        {
-          name: "ヌスミ型",
-          size: "②200×300 厚み30mm",
-          count: 16,
-          plateCount: 5,
-          price: "¥181,000",
-          priceWithTax: "¥199,100",
-        },
-        {
-          name: "ヌスミ型",
-          size: "②200×300 厚み30mm",
-          count: 16,
-          plateCount: "10枚以上",
-          price: "要相談",
-          priceWithTax: "要相談",
-        },
-        {
-          name: "両面平型",
-          size: "200×300×30",
-          count: 12,
-          plateCount: 7,
-          price: "要相談",
-          priceWithTax: "要相談",
-        },
-        {
-          name: "ヌスミ平型",
-          size: "200×100×30",
-          count: 2,
-          plateCount: "10枚以上",
-          price: "要相談",
-          priceWithTax: "要相談",
-        },
-        {
-          name: "容器型",
-          size: "200×250×30",
-          count: 9,
-          plateCount: 7,
-          price: "要相談",
-          priceWithTax: "要相談",
-        },
-        {
-          name: "その他異形",
-          size: "150×200×15",
-          count: 2,
-          plateCount: "10枚以上",
-          price: "要相談",
-          priceWithTax: "要相談",
-        },
-        {
-          name: "デザイン料（3Dデータ化）",
-          size: "",
-          count: "",
-          plateCount: "",
-          price: "¥5,000/デザイン~",
-          priceWithTax: "¥5,500/デザイン~",
-        },
-        {
-          name: "",
-          size: "",
-          count: "",
-          plateCount: "",
-          price: "",
-          priceWithTax: "",
-        },
-        {
-          name: "合計",
-          size: "",
-          count: "",
-          plateCount: "",
-          price: "¥30,000 + ¥5,000~（デザイン費用）",
-          priceWithTax: "¥33,000 + ¥5,500~（デザイン費用）",
-        },
-      ],
-    };
+    return {};
   },
   computed: {
     companyName: {
