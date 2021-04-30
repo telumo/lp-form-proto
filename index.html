@@ -587,14 +587,14 @@
                   <v-col cols="4">
                     <v-subheader>料金</v-subheader>
                   </v-col>
-                  <v-col cols="8"> {{ price }} </v-col>
+                  <v-col cols="8"> {{ price | yenPrice | attention }} </v-col>
                 </v-row>
 
                 <v-row>
                   <v-col cols="4">
                     <v-subheader>料金（税込）</v-subheader>
                   </v-col>
-                  <v-col cols="8"> {{ priceWithTax }} </v-col>
+                  <v-col cols="8"> {{ priceWithTax | yenPrice }} </v-col>
                 </v-row>
               </v-container>
             </v-row>
@@ -791,7 +791,8 @@
             this.show.confirm.mitsumori = true;
             this.show.confirm.soudan = false;
             this.price = this.calcPrice();
-            this.priceWithTax = this.price * 1.1;
+            this.priceWithTax =
+              this.price === "要相談" ? "要相談" : this.price * 1.1;
           },
           toSoudan() {
             this.show.inputForm = false;
@@ -940,6 +941,19 @@
           array2String: function(value) {
             if (!value) return "";
             return value.join(",");
+          },
+          yenPrice: function(value) {
+            if (value === "要相談") {
+              return "要相談";
+            }
+            const formatter = new Intl.NumberFormat("ja-JP");
+            return `¥${formatter.format(value)}~`;
+          },
+          attention: function(value) {
+            if (value === "要相談") {
+              return "要相談";
+            }
+            return `${value} ※デザイン料（3Dデータ化）が別途かかります。`;
           }
         }
       });
