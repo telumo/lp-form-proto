@@ -20,10 +20,38 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
     />
+    <style type="text/css">
+        .primary_button a {
+        position: fixed;
+        bottom: 32px;
+        left: 16px;
+        right: 16px;
+        background-color: #feab33;
+        border-radius: 25px;
+        color: #ffffff;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
+    .bottom_space_for_float_button {
+        padding-bottom: 100px;
+        /*ボタンとの重なり回避*/
+    }
+
+    </style>
     <title>Document</title>
   </head>
   <body>
+    <p><img alt="" class="full" src="img0.png" /></p>
+    <div class="primary_button"><a href="#app" onclick="link1(); return false;">ご相談・お見積りはこちらから </a></div>
+    <div class="bottom_space_for_float_button"></div>
+
     <div id="app">
       <v-app>
         <v-main>
