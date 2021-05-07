@@ -21,7 +21,7 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
     />
     <style type="text/css">
-        .primary_button a {
+     .primary_button a {
         position: fixed;
         bottom: 32px;
         left: 16px;
@@ -38,20 +38,22 @@
         text-decoration: none;
         font-weight: bold;
     }
-
-    .bottom_space_for_float_button {
-        padding-bottom: 100px;
-        /*ボタンとの重なり回避*/
+    figure {
+      width: 180px;
+    }
+    .pic2 img {
+      border-radius: 100px;
     }
 
+    
     </style>
-    <title>Document</title>
+    <title>wbi_test_lp</title>
   </head>
   <body>
+    <figure class="pic2"><a href="#app"><img src="bottom_picture.png"></a></figure>
     <p><img alt="" class="full" src="img0.png" /></p>
     <div class="primary_button"><a href="#app" onclick="link1(); return false;">ご相談・お見積りはこちらから </a></div>
-    <div class="bottom_space_for_float_button"></div>
-
+    
     <div id="app">
       <v-app>
         <v-main>
